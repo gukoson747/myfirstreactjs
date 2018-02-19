@@ -3,19 +3,18 @@ import { Component } from 'react';
 import Header from './common/header';
 import Body from './common/body';
 import './App.css';
-import { Grid, Row, Col } from 'react-bootstrap'
 
 class App extends Component {
   render() {
     return (
-      <Grid>
+      <div>
         <header>
           <Header />
         </header>
         <div>
           <Body />
         </div>
-      </Grid>
+      </div>
     );
   }
 }

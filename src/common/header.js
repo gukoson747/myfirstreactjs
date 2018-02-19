@@ -30,7 +30,7 @@ class Header extends Component{
                         <a href="#home">React-Bootstrap</a>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav>
+                <Nav activeKey={this.state.activeKey} onSelect={this.handleSelect}>
                     <NavItem eventKey={1} href="/">Home</NavItem>
                     <NavItem eventKey={2} href="/about-me">About Me</NavItem>
                     <NavItem eventKey={3} href="/sample">Sample</NavItem>
@@ -40,6 +40,16 @@ class Header extends Component{
         );
     }
 
+}
+
+Header.ProtoTypes = {
+    active: React.ProtoTypes.array.isRequired
+}
+
+function handleSelect(selectedKey) {
+    return {
+        activeKey: selectedKey.active
+    }
 }
 
 export default Header;
