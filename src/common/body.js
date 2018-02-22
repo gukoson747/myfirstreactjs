@@ -5,17 +5,16 @@ import Home from '../pages/home';
 import AboutMe from '../pages/about-me';
 import Sample from '../pages/sample';
 import ContactMe from '../pages/contact-me';
-import { Grid } from 'react-bootstrap';
 
 class Body extends Component{
     render(){
         return(
-            <Grid>
+            <div className="container">
                 <Route exact path="/" component={Home} />
                 <Route path="/about-me" component={AboutMe} />
                 <Route path="/sample" component={Sample} />
                 <Route path="/contact-me" component={ContactMe} />
-            </Grid>
+            </div>
         );
     }
 }

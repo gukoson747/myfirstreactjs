@@ -5944,3 +5944,10 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+/* custom css */
+.navbar-default .navbar-nav > li > a.active:hover, .navbar-default .navbar-nav > li > a.active:focus, .navbar-default .navbar-nav > li > a.active {
+  background: #777;
+  color: #fff !important;
+}

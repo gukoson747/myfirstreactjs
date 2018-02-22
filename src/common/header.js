@@ -1,55 +1,34 @@
 import React from 'react';
 import { Component } from 'react';
-//import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component{
     render(){
         return(
-            /*<nav className="navbar navbar-default">
-                <div className="collapse navbar-collapse">
-                    <ul className="nav navbar-nav">
-                        <li> 
-                            <Link activeClassName={"active"} to="/">Home</Link> 
-                        </li>
-                        <li> 
-                            <Link to="about-me">About Me</Link> 
-                        </li>
-                        <li> 
-                            <Link to="sample">Sample</Link> 
-                        </li>
-                        <li> 
-                            <Link to="contact-me">Contact Me</Link> 
-                        </li>
-                    </ul>
+            
+            <nav className="navbar navbar-default">
+                <div className="container">
+                    <div className="collapse navbar-collapse">
+                        <ul className="nav navbar-nav pull-right">
+                            <li> 
+                                <NavLink exact activeClassName={"active"} to="/">Home</NavLink> 
+                            </li>
+                            <li> 
+                                <NavLink exact activeClassName={"active"} to="/about-me">About Me</NavLink> 
+                            </li>
+                            <li> 
+                                <NavLink exact activeClassName={"active"} to="/sample">Sample</NavLink> 
+                            </li>
+                            <li> 
+                                <NavLink exact activeClassName={"active"} to="/contact-me">Contact Me</NavLink> 
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </nav>*/
-            <Navbar>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="#home">React-Bootstrap</a>
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Nav activeKey={this.state.activeKey} onSelect={this.handleSelect}>
-                    <NavItem eventKey={1} href="/">Home</NavItem>
-                    <NavItem eventKey={2} href="/about-me">About Me</NavItem>
-                    <NavItem eventKey={3} href="/sample">Sample</NavItem>
-                    <NavItem eventKey={4} href="/contact-me">Contact Me</NavItem>
-                </Nav>
-            </Navbar>
+            </nav>
         );
     }
 
-}
-
-Header.ProtoTypes = {
-    active: React.ProtoTypes.array.isRequired
-}
-
-function handleSelect(selectedKey) {
-    return {
-        activeKey: selectedKey.active
-    }
 }
 
 export default Header;
