@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import Contact from '../crud/contact';
+import Add from '../crud/add';
 
 const contacts = [
     {
@@ -23,6 +24,7 @@ const contacts = [
     }
 ];
 
+
 localStorage.setItem('contacts', JSON.stringify(contacts));
 
 class Home extends Component{
@@ -31,7 +33,9 @@ class Home extends Component{
         this.state = {
             contacts: JSON.parse(localStorage.getItem('contacts'))
         }
+        this.addContact = this.addContact.bind(this);
         this.deleteContact = this.deleteContact.bind(this);
+        this.getLastId = this.getLastId.bind(this);
 
     }
     componentWillMount(){
@@ -41,6 +45,18 @@ class Home extends Component{
 
     getContacts(){
        return this.state.contacts;
+    }
+
+    getLastId(){
+        return this.state.contacts.length;
+    }
+
+    addContact(id, name, number, email){
+        contacts.push({
+            id, name, number, email
+        });
+
+        this.setState({ contacts });
     }
 
     deleteContact(id){
@@ -53,10 +69,16 @@ class Home extends Component{
         this.setState({ contacts: findContact });
     }
 
-    render(){
+    render(){ 
         return(
             <div>
                 <h1>Contact List</h1>
+                <hr />
+                    <Add 
+                        addContact={this.addContact}
+                        lastid={this.getLastId()}
+                    />
+                <hr />
                 <table className="table table-striped">
                     <tbody>
                         <tr>
